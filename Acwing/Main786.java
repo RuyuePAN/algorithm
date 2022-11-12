@@ -2,6 +2,7 @@ package com.acwing.binary;
 
 import java.util.Scanner;
 
+// 最好是用快速选择排序
 public class Main786 {
     static int k;
     public static void main(String[] args) {
