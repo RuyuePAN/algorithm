@@ -9,18 +9,15 @@ public class Main795 {
         int m = Integer.parseInt(sc.next());
 
         int[] nums = new int[n + 1];
-        int low;
-        int high;
-        // ÊäÈëÊı×é
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i < n + 1; i++) {
             nums[i] = Integer.parseInt(sc.next());
-            nums[i] = nums[i - 1] + nums[i];
+            nums[i] += nums[i - 1];
         }
-        while (m > 0) {
+        int low, high;
+        while (m-- > 0) {
             low = Integer.parseInt(sc.next());
             high = Integer.parseInt(sc.next());
             System.out.println(nums[high] - nums[low - 1]);
-            m--;
         }
 
     }
