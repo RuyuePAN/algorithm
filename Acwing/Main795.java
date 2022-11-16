@@ -1,7 +1,16 @@
 package com.acwing.binary;
 
 import java.util.Scanner;
-
+/**
+ * The following is the design idea of this class:
+ <table cellspacing=8 cellpadding=0 ">
+ *     <tr style="background-color: rgb(204, 204, 255);">
+ *         <th align=left>class
+ *         <th align=left>name
+ *         <th align=left>sex
+ *         <th align=left>age
+ * </table>
+ */
 public class Main795 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
