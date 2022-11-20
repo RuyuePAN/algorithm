@@ -1,6 +1,13 @@
 package com.acwing.binary;
 
 public class Solution35 {
+    public static void main(String[] args) {
+        int[] nums = {5, 0, 8, -1, 9};
+        Solution sl = new Solution();
+        sl.searchInsert(nums, 9);
+    }
+}
+class Solution {
     public int searchInsert(int[] nums, int target) {
 
         int low = 0, high = nums.length - 1, mid;
