@@ -1,6 +1,5 @@
 package com.acwing.binary;
 
-import java.util.EventListener;
 import java.util.Scanner;
 
 //public class Main827 {
@@ -72,18 +71,75 @@ import java.util.Scanner;
 //}
 
 
-public class Main827 {
-    static int N = 100010;
-    static int[] l = new int[N];
-    static int[] r = new int[N];
-    static int[] e = new int[N];        // 链表中的所有元素
-    static int idx = 0;
+//public class Main827 {
+//    static int N = 100010;
+//    static int[] l = new int[N];
+//    static int[] r = new int[N];
+//    static int[] e = new int[N];        // 链表中的所有元素
+//    static int idx = 0;
+//
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        int m = sc.nextInt();
+//        init();
+//        int x, k;
+//        while (m-- > 0) {
+//            String op = sc.next();
+//            if (op.equals("L")) {
+//                x = sc.nextInt();
+//                add(0, x);
+//            } else if (op.equals("R")) {
+//                x = sc.nextInt();
+//                add(l[1], x);
+//            } else if (op.equals("D")) {
+//                k = sc.nextInt();
+//                remove(k + 1);
+//            } else if (op.equals("IL")) {
+//                k = sc.nextInt();
+//                x = sc.nextInt();
+//                add(l[k + 1], x);
+//            } else {
+//                k = sc.nextInt();
+//                x = sc.nextInt();
+//                add(k + 1, x);
+//            }
+//        }
+//        for (int i = r[0]; i != 1; i = r[i]) {
+//            System.out.print(e[i] + " ");
+//        }
+//    }
+//    public static void init() {
+//        r[0] = 1; // 右端点 head->next = tail
+//        l[1] = 0; // 左端点 tail->pre = head
+//        idx = 2;        // 增加两个端点
+//    }
+//    public static void add(int k, int x) {
+//        e[idx] = x;
+//        r[idx] = r[k];
+//        l[idx] = k;
+//        l[r[k]] = idx;
+//        r[k] = idx++;
+//    }
+//    public static void remove(int k) {
+//        r[l[k]] = r[k];
+//        l[r[k]] = l[k];
+//    }
+//}
+class Main827 {
 
+    static int idx;
+    static int[] l;
+    static int[] r;
+    static int[] e;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();
-        init();
+
+        e = new int[m + 2];
+        l = new int[m + 2];
+        r = new int[m + 2];
         int x, k;
+        init();
         while (m-- > 0) {
             String op = sc.next();
             if (op.equals("L")) {
@@ -109,10 +165,11 @@ public class Main827 {
             System.out.print(e[i] + " ");
         }
     }
+    // 之后存入的数字只会大于等于2，所以1和0分别为两个next数组的边界
     public static void init() {
-        r[0] = 1; // 右端点 head->next = tail
-        l[1] = 0; // 左端点 tail->pre = head
-        idx = 2;        // 增加两个端点
+        r[0] = 1;
+        l[1] = 0;
+        idx = 2;
     }
     public static void add(int k, int x) {
         e[idx] = x;

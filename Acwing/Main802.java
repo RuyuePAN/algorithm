@@ -308,7 +308,6 @@ class Main802 {
         for (Pair item : queries) {
             int left = find(alls, item.first);
             int right = find(alls, item.second);
-//            System.out.println("left = " + left + " right = " + right);
             System.out.println(nums[right] - nums[left - 1]);
         }
     }
