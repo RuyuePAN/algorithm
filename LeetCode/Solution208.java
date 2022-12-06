@@ -87,19 +87,56 @@ class Trie {
 //    }
 
 
+//    private Trie[] children;
+//    private boolean isEnd;
+//
+//    public Trie() {
+//        children = new Trie[26];
+//        isEnd = false;
+//    }
+//
+//    public void insert(String word) {
+//        Trie node = this;
+//        for (int i = 0; i < word.length(); i++) {
+//            int idx = word.charAt(i) - 'a';
+//            if (node.children[idx] == null) node.children[idx] = new Trie();
+//            node = node.children[idx];
+//        }
+//        node.isEnd = true;
+//    }
+//    public boolean search(String word) {
+//        Trie node = this;
+//        for (int i = 0; i < word.length(); i++) {
+//            int idx = word.charAt(i) - 'a';
+//            if (node.children[idx] == null) return false;
+//            node = node.children[idx];
+//        }
+//        return node.isEnd;
+//    }
+//    public boolean startsWith(String prefix) {
+//        Trie node = this;
+//        for (int i = 0; i < prefix.length(); i++) {
+//            int idx = prefix.charAt(i) - 'a';
+//            if (node.children[idx] == null) return false;
+//            node = node.children[idx];
+//        }
+//        return true;
+//    }
+
     private Trie[] children;
     private boolean isEnd;
-
     public Trie() {
-        children = new Trie[26];
+        children = new Trie[26];                        // children树下可以添加26棵树
         isEnd = false;
     }
 
     public void insert(String word) {
-        Trie node = this;
+        Trie node = this;                               // 指向当前的trie树的根节点
         for (int i = 0; i < word.length(); i++) {
             int idx = word.charAt(i) - 'a';
-            if (node.children[idx] == null) node.children[idx] = new Trie();
+            if (node.children[idx] == null) {           // 没有这个子节点，就插入这个子节点
+                node.children[idx] = new Trie();
+            }
             node = node.children[idx];
         }
         node.isEnd = true;
@@ -109,7 +146,7 @@ class Trie {
         for (int i = 0; i < word.length(); i++) {
             int idx = word.charAt(i) - 'a';
             if (node.children[idx] == null) return false;
-            node = node.children[idx];
+            node = node.children[idx];                  // node指针下移
         }
         return node.isEnd;
     }
